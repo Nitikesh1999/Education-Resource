@@ -1,0 +1,28 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h2 class="card-title text-center">Login</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group text-center">
+                            <label for="{{ form.username.id_for_label }}">Username</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group text-center">
+                            <label for="{{ form.password.id_for_label }}">Password</label>
+                            {{ form.password }}
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary btn-lg px-4" type="submit">Login</button>
+                        </div>
+                    </form>
+                    <p class="text-center mt-3">Don't have an account? <a href="{% url 'myapp:signup' %}">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
